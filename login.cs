@@ -16,5 +16,10 @@ namespace WinFormsApp1
         {
             InitializeComponent();
         }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

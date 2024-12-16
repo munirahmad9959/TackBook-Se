@@ -36,6 +36,7 @@
             label1 = new Label();
             label9 = new Label();
             button1 = new Button();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
@@ -113,12 +114,25 @@
             button1.Text = "Login";
             button1.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Century Gothic", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.Navy;
+            label2.Location = new Point(593, 1);
+            label2.Name = "label2";
+            label2.Size = new Size(34, 34);
+            label2.TabIndex = 29;
+            label2.Text = "X";
+            label2.Click += label2_Click;
+            // 
             // adminLogin
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Azure;
             ClientSize = new Size(630, 350);
+            Controls.Add(label2);
             Controls.Add(label9);
             Controls.Add(button1);
             Controls.Add(label1);
@@ -126,6 +140,7 @@
             Controls.Add(label7);
             Controls.Add(pictureBox2);
             Controls.Add(label6);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "adminLogin";
             Text = "adminLogin";
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
@@ -142,5 +157,6 @@
         private Label label1;
         private Label label9;
         private Button button1;
+        private Label label2;
     }
 }

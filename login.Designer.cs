@@ -44,6 +44,7 @@
             textBox2 = new TextBox();
             button1 = new Button();
             label9 = new Label();
+            label10 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -211,11 +212,24 @@
             label9.TabIndex = 14;
             label9.Text = "Admin";
             // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Century Gothic", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label10.ForeColor = Color.Navy;
+            label10.Location = new Point(593, 1);
+            label10.Name = "label10";
+            label10.Size = new Size(34, 34);
+            label10.TabIndex = 29;
+            label10.Text = "X";
+            label10.Click += label10_Click;
+            // 
             // login
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(630, 400);
+            Controls.Add(label10);
             Controls.Add(label9);
             Controls.Add(button1);
             Controls.Add(textBox2);
@@ -225,6 +239,7 @@
             Controls.Add(pictureBox2);
             Controls.Add(label6);
             Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "login";
             Text = "login";
             panel1.ResumeLayout(false);
@@ -252,5 +267,6 @@
         private TextBox textBox2;
         private Button button1;
         private Label label9;
+        private Label label10;
     }
 }
