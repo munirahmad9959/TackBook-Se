@@ -20,7 +20,6 @@ namespace WinFormsApp1
             // Set the new form as the application's main form
             Application.OpenForms["Book"].Hide();
             newForm.ShowDialog();
-
             Application.Exit();
         }
 
