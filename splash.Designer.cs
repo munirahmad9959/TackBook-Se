@@ -35,6 +35,7 @@
             label6 = new Label();
             label1 = new Label();
             label2 = new Label();
+            label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -102,18 +103,32 @@
             label2.TabIndex = 9;
             label2.Text = "%";
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Century Gothic", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.Navy;
+            label3.Location = new Point(584, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(34, 34);
+            label3.TabIndex = 30;
+            label3.Text = "X";
+            label3.Click += label3_Click;
+            // 
             // splash
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(620, 354);
+            Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(label6);
             Controls.Add(progressBar1);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "splash";
             Text = "splash";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -130,5 +145,6 @@
         private Label label6;
         private Label label1;
         private Label label2;
+        private Label label3;
     }
 }
