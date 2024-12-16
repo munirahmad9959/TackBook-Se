@@ -30,57 +30,45 @@
         {
             bookUserControl1 = new BookUserControl();
             bookUserControlBody1 = new BookUserControlBody();
-            label1 = new Label();
             SuspendLayout();
             // 
             // bookUserControl1
             // 
             bookUserControl1.BackColor = Color.Indigo;
-            bookUserControl1.Location = new Point(2, 1);
+            bookUserControl1.Location = new Point(3, 2);
+            bookUserControl1.Margin = new Padding(6, 8, 6, 8);
             bookUserControl1.Name = "bookUserControl1";
-            bookUserControl1.Size = new Size(275, 590);
+            bookUserControl1.Size = new Size(337, 842);
             bookUserControl1.TabIndex = 0;
             bookUserControl1.Load += bookUserControl1_Load;
             // 
             // bookUserControlBody1
             // 
             bookUserControlBody1.BackColor = SystemColors.Control;
-            bookUserControlBody1.Location = new Point(273, 1);
+            bookUserControlBody1.Location = new Point(341, 2);
+            bookUserControlBody1.Margin = new Padding(6, 8, 6, 8);
             bookUserControlBody1.Name = "bookUserControlBody1";
-            bookUserControlBody1.Size = new Size(721, 590);
+            bookUserControlBody1.Size = new Size(1101, 842);
             bookUserControlBody1.TabIndex = 1;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.DarkOrchid;
-            label1.Font = new Font("Elephant", 17.9999981F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(129, 247);
-            label1.Name = "label1";
-            label1.Size = new Size(85, 31);
-            label1.TabIndex = 2;
-            label1.Text = "Seller";
-            label1.Click += label1_Click;
             // 
             // Book
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(909, 592);
-            Controls.Add(label1);
+            ClientSize = new Size(1445, 838);
             Controls.Add(bookUserControlBody1);
             Controls.Add(bookUserControl1);
+            FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4, 5, 4, 5);
             Name = "Book";
             Text = "Book";
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
         private BookUserControl bookUserControl1;
         private BookUserControlBody bookUserControlBody1;
-        private Label label1;
     }
 }

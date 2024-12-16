@@ -35,10 +35,11 @@
             // dashboardControl1
             // 
             dashboardControl1.BackColor = Color.Azure;
-            dashboardControl1.Location = new Point(326, -2);
+            dashboardControl1.Location = new Point(335, 3);
             dashboardControl1.Name = "dashboardControl1";
-            dashboardControl1.Size = new Size(1154, 852);
+            dashboardControl1.Size = new Size(1105, 842);
             dashboardControl1.TabIndex = 1;
+            dashboardControl1.Load += dashboardControl1_Load;
             // 
             // bookUserControl1
             // 
@@ -46,16 +47,17 @@
             bookUserControl1.Location = new Point(-1, -2);
             bookUserControl1.Margin = new Padding(4, 5, 4, 5);
             bookUserControl1.Name = "bookUserControl1";
-            bookUserControl1.Size = new Size(397, 1406);
+            bookUserControl1.Size = new Size(337, 847);
             bookUserControl1.TabIndex = 2;
             // 
             // dashboard
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1425, 844);
+            ClientSize = new Size(1445, 844);
             Controls.Add(bookUserControl1);
             Controls.Add(dashboardControl1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "dashboard";
             Text = "dashboard";
             ResumeLayout(false);

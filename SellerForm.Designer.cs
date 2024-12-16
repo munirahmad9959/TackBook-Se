@@ -36,24 +36,29 @@
             // 
             bookUserControl1.BackColor = Color.Indigo;
             bookUserControl1.Location = new Point(0, 0);
+            bookUserControl1.Margin = new Padding(6, 8, 6, 8);
             bookUserControl1.Name = "bookUserControl1";
-            bookUserControl1.Size = new Size(306, 562);
+            bookUserControl1.Size = new Size(337, 842);
             bookUserControl1.TabIndex = 0;
             // 
             // sellerControl1
             // 
-            sellerControl1.Location = new Point(308, 2);
+            sellerControl1.BackColor = Color.Azure;
+            sellerControl1.Location = new Point(338, 0);
+            sellerControl1.Margin = new Padding(6, 8, 6, 8);
             sellerControl1.Name = "sellerControl1";
-            sellerControl1.Size = new Size(851, 548);
+            sellerControl1.Size = new Size(1096, 842);
             sellerControl1.TabIndex = 1;
             // 
             // SellerForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1124, 550);
+            ClientSize = new Size(1427, 832);
             Controls.Add(sellerControl1);
             Controls.Add(bookUserControl1);
+            FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4, 5, 4, 5);
             Name = "SellerForm";
             Text = "SellerForm";
             ResumeLayout(false);

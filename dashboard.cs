@@ -16,5 +16,10 @@ namespace WinFormsApp1
         {
             InitializeComponent();
         }
+
+        private void dashboardControl1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
