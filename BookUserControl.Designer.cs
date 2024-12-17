@@ -33,8 +33,8 @@
             label1 = new Label();
             label2 = new Label();
             panel1 = new Panel();
-            pictureBox2 = new PictureBox();
             label3 = new Label();
+            pictureBox2 = new PictureBox();
             panel2 = new Panel();
             label4 = new Label();
             pictureBox3 = new PictureBox();
@@ -102,17 +102,6 @@
             panel1.Size = new Size(237, 55);
             panel1.TabIndex = 7;
             // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(3, 2);
-            pictureBox2.Margin = new Padding(4, 5, 4, 5);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(67, 55);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 8;
-            pictureBox2.TabStop = false;
-            // 
             // label3
             // 
             label3.AutoSize = true;
@@ -123,6 +112,18 @@
             label3.Size = new Size(89, 29);
             label3.TabIndex = 9;
             label3.Text = "Sellers";
+            label3.Click += label3_Click;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(3, 2);
+            pictureBox2.Margin = new Padding(4, 5, 4, 5);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(67, 55);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 8;
+            pictureBox2.TabStop = false;
             // 
             // panel2
             // 
@@ -145,6 +146,7 @@
             label4.Size = new Size(83, 29);
             label4.TabIndex = 9;
             label4.Text = "Books";
+            label4.Click += label4_Click;
             // 
             // pictureBox3
             // 
@@ -178,6 +180,7 @@
             label5.Size = new Size(137, 29);
             label5.TabIndex = 9;
             label5.Text = "Dashboard";
+            label5.Click += label5_Click;
             // 
             // pictureBox4
             // 
@@ -211,6 +214,7 @@
             label6.Size = new Size(92, 29);
             label6.TabIndex = 9;
             label6.Text = "Logout";
+            label6.Click += label6_Click;
             // 
             // pictureBox5
             // 

@@ -25,5 +25,44 @@ namespace WinFormsApp1
         private void BS_Seller_Click(object sender, EventArgs e)
         {
         }
+
+        /*Book Label in sidebar*/
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            Book newForm = new Book();
+
+            this.ParentForm?.Hide();
+            newForm.Show();
+        }
+
+        /* Seller Label in sidebar*/
+        private void label3_Click(object sender, EventArgs e)
+        {
+            SellerForm newForm = new SellerForm();
+
+            this.ParentForm?.Hide();
+
+            newForm.Show();
+        }
+
+        /* dashboard in sidebar*/
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            dashboard newForm = new dashboard();
+
+            this.ParentForm?.Hide();
+            newForm.Show();
+        }
+
+        /* logout label in sidebar*/
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            login newform = new login();
+            this.ParentForm?.Hide();
+            newform.Show();
+        }
     }
 }
