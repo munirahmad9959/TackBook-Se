@@ -40,9 +40,9 @@
             pictureBox2 = new PictureBox();
             label7 = new Label();
             label8 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            button1 = new Button();
+            loginformusernametxtbox = new TextBox();
+            loginformpwdtxtbox = new TextBox();
+            loginFormBtnLogin = new Button();
             label9 = new Label();
             label10 = new Label();
             panel1.SuspendLayout();
@@ -175,32 +175,33 @@
             label8.TabIndex = 10;
             label8.Text = "Password";
             // 
-            // textBox1
+            // loginformusernametxtbox
             // 
-            textBox1.Location = new Point(376, 165);
-            textBox1.Margin = new Padding(4, 5, 4, 5);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(172, 31);
-            textBox1.TabIndex = 11;
+            loginformusernametxtbox.Location = new Point(376, 165);
+            loginformusernametxtbox.Margin = new Padding(4, 5, 4, 5);
+            loginformusernametxtbox.Name = "loginformusernametxtbox";
+            loginformusernametxtbox.Size = new Size(172, 31);
+            loginformusernametxtbox.TabIndex = 11;
             // 
-            // textBox2
+            // loginformpwdtxtbox
             // 
-            textBox2.Location = new Point(376, 233);
-            textBox2.Margin = new Padding(4, 5, 4, 5);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(172, 31);
-            textBox2.TabIndex = 12;
+            loginformpwdtxtbox.Location = new Point(376, 233);
+            loginformpwdtxtbox.Margin = new Padding(4, 5, 4, 5);
+            loginformpwdtxtbox.Name = "loginformpwdtxtbox";
+            loginformpwdtxtbox.Size = new Size(172, 31);
+            loginformpwdtxtbox.TabIndex = 12;
             // 
-            // button1
+            // loginFormBtnLogin
             // 
-            button1.Font = new Font("Cooper Black", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.Navy;
-            button1.Location = new Point(358, 302);
-            button1.Name = "button1";
-            button1.Size = new Size(133, 52);
-            button1.TabIndex = 13;
-            button1.Text = "Login";
-            button1.UseVisualStyleBackColor = true;
+            loginFormBtnLogin.Font = new Font("Cooper Black", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            loginFormBtnLogin.ForeColor = Color.Navy;
+            loginFormBtnLogin.Location = new Point(358, 302);
+            loginFormBtnLogin.Name = "loginFormBtnLogin";
+            loginFormBtnLogin.Size = new Size(133, 52);
+            loginFormBtnLogin.TabIndex = 13;
+            loginFormBtnLogin.Text = "Login";
+            loginFormBtnLogin.UseVisualStyleBackColor = true;
+            loginFormBtnLogin.Click += loginFormBtnLogin_Click;
             // 
             // label9
             // 
@@ -231,9 +232,9 @@
             ClientSize = new Size(630, 400);
             Controls.Add(label10);
             Controls.Add(label9);
-            Controls.Add(button1);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(loginFormBtnLogin);
+            Controls.Add(loginformpwdtxtbox);
+            Controls.Add(loginformusernametxtbox);
             Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(pictureBox2);
@@ -263,9 +264,9 @@
         private PictureBox pictureBox2;
         private Label label7;
         private Label label8;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private Button button1;
+        private TextBox loginformusernametxtbox;
+        private TextBox loginformpwdtxtbox;
+        private Button loginFormBtnLogin;
         private Label label9;
         private Label label10;
     }

@@ -62,10 +62,6 @@
             label9 = new Label();
             label8 = new Label();
             pictureBox2 = new PictureBox();
-            ID = new DataGridViewTextBoxColumn();
-            Books = new DataGridViewTextBoxColumn();
-            Price = new DataGridViewTextBoxColumn();
-            Quantity = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
@@ -250,7 +246,6 @@
             // 
             dataGridView2.BackgroundColor = Color.Azure;
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { ID, Books, Price, Quantity });
             dataGridView2.Location = new Point(570, 195);
             dataGridView2.Margin = new Padding(4, 5, 4, 5);
             dataGridView2.Name = "dataGridView2";
@@ -293,6 +288,7 @@
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.Size = new Size(566, 333);
             dataGridView1.TabIndex = 41;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // label15
             // 
@@ -318,6 +314,7 @@
             button5.TabIndex = 39;
             button5.Text = "Reset";
             button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
             // 
             // button6
             // 
@@ -331,6 +328,7 @@
             button6.TabIndex = 38;
             button6.Text = "Add to Bill";
             button6.UseVisualStyleBackColor = false;
+            button6.Click += button6_Click;
             // 
             // textBox4
             // 
@@ -468,34 +466,6 @@
             pictureBox2.TabIndex = 2;
             pictureBox2.TabStop = false;
             // 
-            // ID
-            // 
-            ID.HeaderText = "ID";
-            ID.MinimumWidth = 8;
-            ID.Name = "ID";
-            ID.Width = 70;
-            // 
-            // Books
-            // 
-            Books.HeaderText = "Books";
-            Books.MinimumWidth = 8;
-            Books.Name = "Books";
-            Books.Width = 130;
-            // 
-            // Price
-            // 
-            Price.HeaderText = "Price";
-            Price.MinimumWidth = 8;
-            Price.Name = "Price";
-            Price.Width = 130;
-            // 
-            // Quantity
-            // 
-            Quantity.HeaderText = "Quantity";
-            Quantity.MinimumWidth = 8;
-            Quantity.Name = "Quantity";
-            Quantity.Width = 130;
-            // 
             // saleBook
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -556,9 +526,5 @@
         private Label label16;
         private Button button1;
         private Label label17;
-        private DataGridViewTextBoxColumn ID;
-        private DataGridViewTextBoxColumn Books;
-        private DataGridViewTextBoxColumn Price;
-        private DataGridViewTextBoxColumn Quantity;
     }
 }

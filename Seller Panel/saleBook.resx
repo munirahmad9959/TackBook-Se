@@ -121,7 +121,7 @@
   <data name="pictureBox5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAEAAAABAACAYAAADyoyQXAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAA/7JJREFUeF7s3f3r73ddx/H795xt6tmcF1PXmhoxdVCZqGmDVgMXjJJFtSb9YEcD
+        DAAACwwBP0AiyAAA/7JJREFUeF7s3f3r73ddx/H795xt6tmcF1PXmhoxdVCZqGmDVgMXjJJFtSb9YEcD
         nWYXpkFHIm1dr1niIoQZZi0p2lJIxW1eVaAGlnkRK1JTmmwqbbapu/Ccs1N88Ruuly/nufhefL6fz+0G
         97/i+Xi/3gUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -7271,22 +7271,10 @@
         APzDz+fPDADf8gcvpXJkI3u3IAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="ID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Books.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Price.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Quantity.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="pictureBox3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAACyEAAAVZCAYAAADBjOUgAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAP+NSURBVHhe7N3b
+        DAAACwwBP0AiyAAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAP+NSURBVHhe7N3b
         cdvK1i7QE8J6UAAuReAQXKUEHIJDUAgOQSEoBIXgEBSCQnAG/6np3VqLngBJXLpxHQ+j1t4wCVBAswE2
         vp74f//3f//3/wAAAAAAAID/eXh8+vbw+PRPXg4AAADAfzoLAAAAAAAA4IweHp++PDw+vT08Pn3kfwMA
         AADgb50FAAAAAAAAcDYPj08/Hx6ffj88Pv3fw+PTj/zvAAAAAPytswAAAAAAAADO4uHx6VtUPi7h4xBB
