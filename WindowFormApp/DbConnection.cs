@@ -23,7 +23,7 @@ namespace WinFormsApp1
                 {
                     if (_connection == null || _connection.State == System.Data.ConnectionState.Closed)
                     {
-                        string connectionString = @"Data Source=DESKTOP-TCGJHDO\SQLEXPRESS;Initial Catalog=C:\USERS\HUZAI\ONEDRIVE\DOCUMENTS\BOOKSHOPDB.MDF;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+                        string connectionString = @"Data Source=SOHAIB-IKRAM\SQLEXPRESS;Initial Catalog=C:\USERS\HUZAI\ONEDRIVE\DOCUMENTS\BOOKSHOPDB.MDF;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False";
 
                         _connection = new SqlConnection(connectionString);
                         _connection.Open(); // Open the connection once

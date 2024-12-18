@@ -43,7 +43,7 @@
             loginformusernametxtbox = new TextBox();
             loginformpwdtxtbox = new TextBox();
             loginFormBtnLogin = new Button();
-            label9 = new Label();
+            Admin_LP = new Label();
             label10 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -193,6 +193,7 @@
             // 
             // loginFormBtnLogin
             // 
+            loginFormBtnLogin.Cursor = Cursors.Hand;
             loginFormBtnLogin.Font = new Font("Cooper Black", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             loginFormBtnLogin.ForeColor = Color.Navy;
             loginFormBtnLogin.Location = new Point(358, 302);
@@ -203,15 +204,17 @@
             loginFormBtnLogin.UseVisualStyleBackColor = true;
             loginFormBtnLogin.Click += loginFormBtnLogin_Click;
             // 
-            // label9
+            // Admin_LP
             // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Comic Sans MS", 10F, FontStyle.Underline, GraphicsUnit.Point, 0);
-            label9.Location = new Point(389, 363);
-            label9.Name = "label9";
-            label9.Size = new Size(69, 28);
-            label9.TabIndex = 14;
-            label9.Text = "Admin";
+            Admin_LP.AutoSize = true;
+            Admin_LP.Cursor = Cursors.Hand;
+            Admin_LP.Font = new Font("Comic Sans MS", 10F, FontStyle.Underline, GraphicsUnit.Point, 0);
+            Admin_LP.Location = new Point(389, 363);
+            Admin_LP.Name = "Admin_LP";
+            Admin_LP.Size = new Size(69, 28);
+            Admin_LP.TabIndex = 14;
+            Admin_LP.Text = "Admin";
+            Admin_LP.Click += Admin_LP_Click;
             // 
             // label10
             // 
@@ -231,7 +234,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(630, 400);
             Controls.Add(label10);
-            Controls.Add(label9);
+            Controls.Add(Admin_LP);
             Controls.Add(loginFormBtnLogin);
             Controls.Add(loginformpwdtxtbox);
             Controls.Add(loginformusernametxtbox);
@@ -267,7 +270,7 @@
         private TextBox loginformusernametxtbox;
         private TextBox loginformpwdtxtbox;
         private Button loginFormBtnLogin;
-        private Label label9;
+        private Label Admin_LP;
         private Label label10;
     }
 }

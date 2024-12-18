@@ -29,25 +29,25 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(adminLogin));
-            textBox1 = new TextBox();
+            Admin_passTB = new TextBox();
             label7 = new Label();
             pictureBox2 = new PictureBox();
             label6 = new Label();
             label1 = new Label();
-            label9 = new Label();
+            Back_Login_btn = new Label();
             button1 = new Button();
             label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
-            // textBox1
+            // Admin_passTB
             // 
-            textBox1.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(275, 180);
-            textBox1.Margin = new Padding(4, 5, 4, 5);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(198, 32);
-            textBox1.TabIndex = 15;
+            Admin_passTB.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Admin_passTB.Location = new Point(275, 180);
+            Admin_passTB.Margin = new Padding(4, 5, 4, 5);
+            Admin_passTB.Name = "Admin_passTB";
+            Admin_passTB.Size = new Size(198, 32);
+            Admin_passTB.TabIndex = 15;
             // 
             // label7
             // 
@@ -93,18 +93,21 @@
             label1.TabIndex = 16;
             label1.Text = "Admin Panel";
             // 
-            // label9
+            // Back_Login_btn
             // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.Location = new Point(272, 298);
-            label9.Name = "label9";
-            label9.Size = new Size(83, 23);
-            label9.TabIndex = 18;
-            label9.Text = "Cancel";
+            Back_Login_btn.AutoSize = true;
+            Back_Login_btn.Cursor = Cursors.Hand;
+            Back_Login_btn.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Back_Login_btn.Location = new Point(272, 298);
+            Back_Login_btn.Name = "Back_Login_btn";
+            Back_Login_btn.Size = new Size(83, 23);
+            Back_Login_btn.TabIndex = 18;
+            Back_Login_btn.Text = "Cancel";
+            Back_Login_btn.Click += Back_Login_btn_Click;
             // 
             // button1
             // 
+            button1.Cursor = Cursors.Hand;
             button1.Font = new Font("Cooper Black", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.Navy;
             button1.Location = new Point(249, 234);
@@ -113,6 +116,7 @@
             button1.TabIndex = 17;
             button1.Text = "Login";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // label2
             // 
@@ -133,15 +137,16 @@
             BackColor = Color.Azure;
             ClientSize = new Size(630, 350);
             Controls.Add(label2);
-            Controls.Add(label9);
+            Controls.Add(Back_Login_btn);
             Controls.Add(button1);
             Controls.Add(label1);
-            Controls.Add(textBox1);
+            Controls.Add(Admin_passTB);
             Controls.Add(label7);
             Controls.Add(pictureBox2);
             Controls.Add(label6);
             FormBorderStyle = FormBorderStyle.None;
             Name = "adminLogin";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "adminLogin";
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
@@ -150,12 +155,12 @@
 
         #endregion
 
-        private TextBox textBox1;
+        private TextBox Admin_passTB;
         private Label label7;
         private PictureBox pictureBox2;
         private Label label6;
         private Label label1;
-        private Label label9;
+        private Label Back_Login_btn;
         private Button button1;
         private Label label2;
     }

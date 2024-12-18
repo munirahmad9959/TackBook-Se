@@ -77,7 +77,8 @@ namespace WinFormsApp1
                 myOrder.Price = Convert.ToInt32(textBox4.Text);
                 await myserver.addOrderAsync(myOrder);
                 datashow();
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -134,6 +135,11 @@ namespace WinFormsApp1
             login newform = new login();
             this.Hide();
             newform.Show();
+        }
+
+        private void label18_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -66,5 +66,12 @@ namespace WinFormsApp1
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void Admin_LP_Click(object sender, EventArgs e)
+        {
+            adminLogin adminLogin = new adminLogin();
+            this.Hide();
+            adminLogin.Show();
+        }
     }
 }
