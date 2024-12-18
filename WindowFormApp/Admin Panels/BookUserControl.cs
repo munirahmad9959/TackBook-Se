@@ -12,6 +12,7 @@ namespace WinFormsApp1
 {
     public partial class BookUserControl : UserControl
     {
+
         public BookUserControl()
         {
             InitializeComponent();
@@ -31,7 +32,6 @@ namespace WinFormsApp1
         private void label4_Click(object sender, EventArgs e)
         {
             Book newForm = new Book();
-
             this.ParentForm?.Hide();
             newForm.Show();
         }
@@ -40,6 +40,7 @@ namespace WinFormsApp1
         private void label3_Click(object sender, EventArgs e)
         {
             SellerForm newForm = new SellerForm();
+
 
             this.ParentForm?.Hide();
 
@@ -51,9 +52,9 @@ namespace WinFormsApp1
         private void label5_Click(object sender, EventArgs e)
         {
             dashboard newForm = new dashboard();
-
             this.ParentForm?.Hide();
             newForm.Show();
+
         }
 
         /* logout label in sidebar*/
@@ -63,6 +64,7 @@ namespace WinFormsApp1
             login newform = new login();
             this.ParentForm?.Hide();
             newform.Show();
+
         }
     }
 }

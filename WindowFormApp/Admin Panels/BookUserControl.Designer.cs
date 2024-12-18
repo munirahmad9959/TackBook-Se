@@ -130,6 +130,7 @@
             panel2.BackColor = Color.DarkOrchid;
             panel2.Controls.Add(label4);
             panel2.Controls.Add(pictureBox3);
+            panel2.Cursor = Cursors.Hand;
             panel2.Location = new Point(63, 215);
             panel2.Margin = new Padding(4, 5, 4, 5);
             panel2.Name = "panel2";
@@ -239,6 +240,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
+            Cursor = Cursors.Hand;
             Margin = new Padding(4, 5, 4, 5);
             Name = "BookUserControl";
             Size = new Size(337, 842);

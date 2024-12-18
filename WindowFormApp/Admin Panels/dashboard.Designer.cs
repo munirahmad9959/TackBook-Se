@@ -35,9 +35,9 @@
             // dashboardControl1
             // 
             dashboardControl1.BackColor = Color.Azure;
-            dashboardControl1.Location = new Point(335, 3);
+            dashboardControl1.Location = new Point(335, -2);
             dashboardControl1.Name = "dashboardControl1";
-            dashboardControl1.Size = new Size(1105, 842);
+            dashboardControl1.Size = new Size(1105, 847);
             dashboardControl1.TabIndex = 1;
             dashboardControl1.Load += dashboardControl1_Load;
             // 
@@ -59,6 +59,7 @@
             Controls.Add(dashboardControl1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "dashboard";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "dashboard";
             ResumeLayout(false);
         }

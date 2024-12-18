@@ -32,15 +32,15 @@
             label1 = new Label();
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
-            label3 = new Label();
+            BookStock = new Label();
             label2 = new Label();
             pictureBox2 = new PictureBox();
             panel2 = new Panel();
-            label4 = new Label();
+            Amount_label = new Label();
             label5 = new Label();
             pictureBox3 = new PictureBox();
             panel3 = new Panel();
-            label6 = new Label();
+            Seller_label = new Label();
             label7 = new Label();
             pictureBox4 = new PictureBox();
             label8 = new Label();
@@ -77,7 +77,7 @@
             // panel1
             // 
             panel1.BackColor = Color.PaleVioletRed;
-            panel1.Controls.Add(label3);
+            panel1.Controls.Add(BookStock);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(pictureBox2);
             panel1.Location = new Point(169, 218);
@@ -85,16 +85,16 @@
             panel1.Size = new Size(340, 195);
             panel1.TabIndex = 2;
             // 
-            // label3
+            // BookStock
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Showcard Gothic", 10F);
-            label3.ForeColor = Color.White;
-            label3.Location = new Point(12, 67);
-            label3.Name = "label3";
-            label3.Size = new Size(140, 26);
-            label3.TabIndex = 4;
-            label3.Text = "bkStocklbl";
+            BookStock.AutoSize = true;
+            BookStock.Font = new Font("Elephant", 10.8749981F);
+            BookStock.ForeColor = Color.White;
+            BookStock.Location = new Point(12, 67);
+            BookStock.Name = "BookStock";
+            BookStock.Size = new Size(133, 29);
+            BookStock.TabIndex = 4;
+            BookStock.Text = "bkStocklbl";
             // 
             // label2
             // 
@@ -120,7 +120,7 @@
             // panel2
             // 
             panel2.BackColor = Color.LightSeaGreen;
-            panel2.Controls.Add(label4);
+            panel2.Controls.Add(Amount_label);
             panel2.Controls.Add(label5);
             panel2.Controls.Add(pictureBox3);
             panel2.Location = new Point(672, 218);
@@ -128,16 +128,16 @@
             panel2.Size = new Size(340, 195);
             panel2.TabIndex = 5;
             // 
-            // label4
+            // Amount_label
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Showcard Gothic", 10F);
-            label4.ForeColor = Color.White;
-            label4.Location = new Point(12, 67);
-            label4.Name = "label4";
-            label4.Size = new Size(144, 26);
-            label4.TabIndex = 4;
-            label4.Text = "tamountlbl";
+            Amount_label.AutoSize = true;
+            Amount_label.Font = new Font("Elephant", 10.8749981F);
+            Amount_label.ForeColor = Color.White;
+            Amount_label.Location = new Point(12, 67);
+            Amount_label.Name = "Amount_label";
+            Amount_label.Size = new Size(134, 29);
+            Amount_label.TabIndex = 4;
+            Amount_label.Text = "tamountlbl";
             // 
             // label5
             // 
@@ -163,7 +163,7 @@
             // panel3
             // 
             panel3.BackColor = Color.MediumSlateBlue;
-            panel3.Controls.Add(label6);
+            panel3.Controls.Add(Seller_label);
             panel3.Controls.Add(label7);
             panel3.Controls.Add(pictureBox4);
             panel3.Location = new Point(417, 464);
@@ -171,16 +171,16 @@
             panel3.Size = new Size(340, 195);
             panel3.TabIndex = 5;
             // 
-            // label6
+            // Seller_label
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Showcard Gothic", 10F);
-            label6.ForeColor = Color.White;
-            label6.Location = new Point(12, 67);
-            label6.Name = "label6";
-            label6.Size = new Size(85, 26);
-            label6.TabIndex = 4;
-            label6.Text = "usrlbl";
+            Seller_label.AutoSize = true;
+            Seller_label.Font = new Font("Elephant", 10.8749981F);
+            Seller_label.ForeColor = Color.White;
+            Seller_label.Location = new Point(12, 67);
+            Seller_label.Name = "Seller_label";
+            Seller_label.Size = new Size(77, 29);
+            Seller_label.TabIndex = 4;
+            Seller_label.Text = "usrlbl";
             // 
             // label7
             // 
@@ -228,6 +228,7 @@
             Controls.Add(label1);
             Name = "DashboardControl";
             Size = new Size(1101, 848);
+            Load += DashboardControl_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -248,14 +249,14 @@
         private PictureBox pictureBox1;
         private Panel panel1;
         private PictureBox pictureBox2;
-        private Label label3;
+        private Label BookStock;
         private Label label2;
         private Panel panel2;
-        private Label label4;
+        private Label Amount_label;
         private Label label5;
         private PictureBox pictureBox3;
         private Panel panel3;
-        private Label label6;
+        private Label Seller_label;
         private Label label7;
         private PictureBox pictureBox4;
         private Label label8;

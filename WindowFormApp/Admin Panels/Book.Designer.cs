@@ -62,6 +62,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4, 5, 4, 5);
             Name = "Book";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Book";
             ResumeLayout(false);
         }
