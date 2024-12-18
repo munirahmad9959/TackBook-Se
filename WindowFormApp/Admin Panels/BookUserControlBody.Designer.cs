@@ -31,11 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookUserControlBody));
             label1 = new Label();
             pictureBox1 = new PictureBox();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox4 = new TextBox();
+            titleTB = new TextBox();
+            AuthorTB = new TextBox();
+            QuanTB = new TextBox();
             comboBox1 = new ComboBox();
-            textBox3 = new TextBox();
+            PriceTB = new TextBox();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
@@ -43,14 +43,14 @@
             label6 = new Label();
             button1 = new Button();
             label7 = new Label();
-            textBox5 = new TextBox();
-            button4 = new Button();
+            AddCat_tb = new TextBox();
+            CreateBtn = new Button();
             label8 = new Label();
-            comboBox2 = new ComboBox();
+            filterCategory = new ComboBox();
             dataGridView1 = new DataGridView();
-            button2 = new Button();
-            button3 = new Button();
-            button6 = new Button();
+            Edit_btn = new Button();
+            Delete_btn = new Button();
+            resetCat_btn = new Button();
             label9 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -80,35 +80,36 @@
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
-            // textBox1
+            // titleTB
             // 
-            textBox1.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(9, 195);
-            textBox1.Margin = new Padding(4, 5, 4, 5);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(231, 34);
-            textBox1.TabIndex = 2;
+            titleTB.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            titleTB.Location = new Point(9, 195);
+            titleTB.Margin = new Padding(4, 5, 4, 5);
+            titleTB.Name = "titleTB";
+            titleTB.Size = new Size(231, 34);
+            titleTB.TabIndex = 2;
             // 
-            // textBox2
+            // AuthorTB
             // 
-            textBox2.Font = new Font("Century Gothic", 11F);
-            textBox2.Location = new Point(272, 197);
-            textBox2.Margin = new Padding(4, 5, 4, 5);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(207, 34);
-            textBox2.TabIndex = 3;
+            AuthorTB.Font = new Font("Century Gothic", 11F);
+            AuthorTB.Location = new Point(272, 197);
+            AuthorTB.Margin = new Padding(4, 5, 4, 5);
+            AuthorTB.Name = "AuthorTB";
+            AuthorTB.Size = new Size(207, 34);
+            AuthorTB.TabIndex = 3;
             // 
-            // textBox4
+            // QuanTB
             // 
-            textBox4.Font = new Font("Century Gothic", 11F);
-            textBox4.Location = new Point(751, 197);
-            textBox4.Margin = new Padding(4, 5, 4, 5);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(147, 34);
-            textBox4.TabIndex = 5;
+            QuanTB.Font = new Font("Century Gothic", 11F);
+            QuanTB.Location = new Point(751, 197);
+            QuanTB.Margin = new Padding(4, 5, 4, 5);
+            QuanTB.Name = "QuanTB";
+            QuanTB.Size = new Size(147, 34);
+            QuanTB.TabIndex = 5;
             // 
             // comboBox1
             // 
+            comboBox1.Cursor = Cursors.Hand;
             comboBox1.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBox1.ForeColor = Color.Gray;
             comboBox1.FormattingEnabled = true;
@@ -119,14 +120,14 @@
             comboBox1.TabIndex = 6;
             comboBox1.Text = "Select Category";
             // 
-            // textBox3
+            // PriceTB
             // 
-            textBox3.Font = new Font("Century Gothic", 11F);
-            textBox3.Location = new Point(923, 197);
-            textBox3.Margin = new Padding(4, 5, 4, 5);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(140, 34);
-            textBox3.TabIndex = 7;
+            PriceTB.Font = new Font("Century Gothic", 11F);
+            PriceTB.Location = new Point(923, 197);
+            PriceTB.Margin = new Padding(4, 5, 4, 5);
+            PriceTB.Name = "PriceTB";
+            PriceTB.Size = new Size(140, 34);
+            PriceTB.TabIndex = 7;
             // 
             // label2
             // 
@@ -186,6 +187,7 @@
             // button1
             // 
             button1.BackColor = Color.BlueViolet;
+            button1.Cursor = Cursors.Hand;
             button1.Font = new Font("Cooper Black", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button1.ForeColor = SystemColors.Control;
             button1.Location = new Point(278, 277);
@@ -207,26 +209,29 @@
             label7.TabIndex = 16;
             label7.Text = "Category Name";
             // 
-            // textBox5
+            // AddCat_tb
             // 
-            textBox5.Location = new Point(254, 383);
-            textBox5.Margin = new Padding(4, 5, 4, 5);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(228, 31);
-            textBox5.TabIndex = 17;
+            AddCat_tb.Font = new Font("Century Gothic", 11F);
+            AddCat_tb.Location = new Point(254, 383);
+            AddCat_tb.Margin = new Padding(4, 5, 4, 5);
+            AddCat_tb.Name = "AddCat_tb";
+            AddCat_tb.Size = new Size(228, 34);
+            AddCat_tb.TabIndex = 17;
             // 
-            // button4
+            // CreateBtn
             // 
-            button4.BackColor = Color.BlueViolet;
-            button4.Font = new Font("Cooper Black", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button4.ForeColor = SystemColors.Control;
-            button4.Location = new Point(564, 382);
-            button4.Margin = new Padding(4, 5, 4, 5);
-            button4.Name = "button4";
-            button4.Size = new Size(161, 45);
-            button4.TabIndex = 18;
-            button4.Text = "Create";
-            button4.UseVisualStyleBackColor = false;
+            CreateBtn.BackColor = Color.BlueViolet;
+            CreateBtn.Cursor = Cursors.Hand;
+            CreateBtn.Font = new Font("Cooper Black", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            CreateBtn.ForeColor = SystemColors.Control;
+            CreateBtn.Location = new Point(564, 382);
+            CreateBtn.Margin = new Padding(4, 5, 4, 5);
+            CreateBtn.Name = "CreateBtn";
+            CreateBtn.Size = new Size(161, 45);
+            CreateBtn.TabIndex = 18;
+            CreateBtn.Text = "Create";
+            CreateBtn.UseVisualStyleBackColor = false;
+            CreateBtn.Click += CreateBtn_Click;
             // 
             // label8
             // 
@@ -240,17 +245,19 @@
             label8.TabIndex = 19;
             label8.Text = "BOOKS LIST";
             // 
-            // comboBox2
+            // filterCategory
             // 
-            comboBox2.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboBox2.ForeColor = Color.Gray;
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(386, 508);
-            comboBox2.Margin = new Padding(4, 5, 4, 5);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(247, 33);
-            comboBox2.TabIndex = 20;
-            comboBox2.Text = "Filter by Category";
+            filterCategory.Cursor = Cursors.Hand;
+            filterCategory.Font = new Font("Century Gothic", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            filterCategory.ForeColor = Color.Gray;
+            filterCategory.FormattingEnabled = true;
+            filterCategory.Location = new Point(386, 508);
+            filterCategory.Margin = new Padding(4, 5, 4, 5);
+            filterCategory.Name = "filterCategory";
+            filterCategory.Size = new Size(247, 33);
+            filterCategory.TabIndex = 20;
+            filterCategory.Text = "Filter by Category";
+            filterCategory.SelectionChangeCommitted += filterCategory_SelectionChangeCommitted;
             // 
             // dataGridView1
             // 
@@ -262,49 +269,57 @@
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.Size = new Size(1051, 235);
             dataGridView1.TabIndex = 22;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
-            // button2
+            // Edit_btn
             // 
-            button2.BackColor = Color.BlueViolet;
-            button2.Font = new Font("Cooper Black", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.ForeColor = SystemColors.Control;
-            button2.Location = new Point(488, 277);
-            button2.Margin = new Padding(4, 5, 4, 5);
-            button2.Name = "button2";
-            button2.Size = new Size(131, 53);
-            button2.TabIndex = 23;
-            button2.Text = "Edit";
-            button2.UseVisualStyleBackColor = false;
+            Edit_btn.BackColor = Color.BlueViolet;
+            Edit_btn.Cursor = Cursors.Hand;
+            Edit_btn.Font = new Font("Cooper Black", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Edit_btn.ForeColor = SystemColors.Control;
+            Edit_btn.Location = new Point(488, 277);
+            Edit_btn.Margin = new Padding(4, 5, 4, 5);
+            Edit_btn.Name = "Edit_btn";
+            Edit_btn.Size = new Size(131, 53);
+            Edit_btn.TabIndex = 23;
+            Edit_btn.Text = "Edit";
+            Edit_btn.UseVisualStyleBackColor = false;
+            Edit_btn.Click += Edit_btn_Click;
             // 
-            // button3
+            // Delete_btn
             // 
-            button3.BackColor = Color.BlueViolet;
-            button3.Font = new Font("Cooper Black", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button3.ForeColor = SystemColors.Control;
-            button3.Location = new Point(692, 277);
-            button3.Margin = new Padding(4, 5, 4, 5);
-            button3.Name = "button3";
-            button3.Size = new Size(131, 53);
-            button3.TabIndex = 24;
-            button3.Text = "Delete";
-            button3.UseVisualStyleBackColor = false;
+            Delete_btn.BackColor = Color.BlueViolet;
+            Delete_btn.Cursor = Cursors.Hand;
+            Delete_btn.Font = new Font("Cooper Black", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Delete_btn.ForeColor = SystemColors.Control;
+            Delete_btn.Location = new Point(692, 277);
+            Delete_btn.Margin = new Padding(4, 5, 4, 5);
+            Delete_btn.Name = "Delete_btn";
+            Delete_btn.Size = new Size(131, 53);
+            Delete_btn.TabIndex = 24;
+            Delete_btn.Text = "Delete";
+            Delete_btn.UseVisualStyleBackColor = false;
+            Delete_btn.Click += Delete_btn_Click;
             // 
-            // button6
+            // resetCat_btn
             // 
-            button6.BackColor = Color.BlueViolet;
-            button6.Font = new Font("Cooper Black", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button6.ForeColor = SystemColors.Control;
-            button6.Location = new Point(699, 496);
-            button6.Margin = new Padding(4, 5, 4, 5);
-            button6.Name = "button6";
-            button6.Size = new Size(161, 45);
-            button6.TabIndex = 25;
-            button6.Text = "Reset";
-            button6.UseVisualStyleBackColor = false;
+            resetCat_btn.BackColor = Color.BlueViolet;
+            resetCat_btn.Cursor = Cursors.Hand;
+            resetCat_btn.Font = new Font("Cooper Black", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            resetCat_btn.ForeColor = SystemColors.Control;
+            resetCat_btn.Location = new Point(699, 496);
+            resetCat_btn.Margin = new Padding(4, 5, 4, 5);
+            resetCat_btn.Name = "resetCat_btn";
+            resetCat_btn.Size = new Size(161, 45);
+            resetCat_btn.TabIndex = 25;
+            resetCat_btn.Text = "Reset";
+            resetCat_btn.UseVisualStyleBackColor = false;
+            resetCat_btn.Click += resetCat_btn_Click;
             // 
             // label9
             // 
             label9.AutoSize = true;
+            label9.Cursor = Cursors.Hand;
             label9.Font = new Font("Century Gothic", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label9.ForeColor = Color.Navy;
             label9.Location = new Point(1064, 3);
@@ -320,14 +335,14 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Azure;
             Controls.Add(label9);
-            Controls.Add(button6);
-            Controls.Add(button3);
-            Controls.Add(button2);
+            Controls.Add(resetCat_btn);
+            Controls.Add(Delete_btn);
+            Controls.Add(Edit_btn);
             Controls.Add(dataGridView1);
-            Controls.Add(comboBox2);
+            Controls.Add(filterCategory);
             Controls.Add(label8);
-            Controls.Add(button4);
-            Controls.Add(textBox5);
+            Controls.Add(CreateBtn);
+            Controls.Add(AddCat_tb);
             Controls.Add(label7);
             Controls.Add(button1);
             Controls.Add(label6);
@@ -335,11 +350,11 @@
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(textBox3);
+            Controls.Add(PriceTB);
             Controls.Add(comboBox1);
-            Controls.Add(textBox4);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(QuanTB);
+            Controls.Add(AuthorTB);
+            Controls.Add(titleTB);
             Controls.Add(pictureBox1);
             Controls.Add(label1);
             Margin = new Padding(4, 5, 4, 5);
@@ -355,11 +370,11 @@
 
         private Label label1;
         private PictureBox pictureBox1;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox4;
+        private TextBox titleTB;
+        private TextBox AuthorTB;
+        private TextBox QuanTB;
         private ComboBox comboBox1;
-        private TextBox textBox3;
+        private TextBox PriceTB;
         private Label label2;
         private Label label3;
         private Label label4;
@@ -367,14 +382,14 @@
         private Label label6;
         private Button button1;
         private Label label7;
-        private TextBox textBox5;
-        private Button button4;
+        private TextBox AddCat_tb;
+        private Button CreateBtn;
         private Label label8;
-        private ComboBox comboBox2;
+        private ComboBox filterCategory;
         private DataGridView dataGridView1;
-        private Button button2;
-        private Button button3;
-        private Button button6;
+        private Button Edit_btn;
+        private Button Delete_btn;
+        private Button resetCat_btn;
         private Label label9;
     }
 }

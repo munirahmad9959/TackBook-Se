@@ -88,11 +88,11 @@
             // BookStock
             // 
             BookStock.AutoSize = true;
-            BookStock.Font = new Font("Elephant", 10.8749981F);
+            BookStock.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BookStock.ForeColor = Color.White;
             BookStock.Location = new Point(12, 67);
             BookStock.Name = "BookStock";
-            BookStock.Size = new Size(133, 29);
+            BookStock.Size = new Size(133, 28);
             BookStock.TabIndex = 4;
             BookStock.Text = "bkStocklbl";
             // 
@@ -131,11 +131,11 @@
             // Amount_label
             // 
             Amount_label.AutoSize = true;
-            Amount_label.Font = new Font("Elephant", 10.8749981F);
+            Amount_label.Font = new Font("Century Gothic", 12F, FontStyle.Bold);
             Amount_label.ForeColor = Color.White;
             Amount_label.Location = new Point(12, 67);
             Amount_label.Name = "Amount_label";
-            Amount_label.Size = new Size(134, 29);
+            Amount_label.Size = new Size(136, 28);
             Amount_label.TabIndex = 4;
             Amount_label.Text = "tamountlbl";
             // 
@@ -174,11 +174,11 @@
             // Seller_label
             // 
             Seller_label.AutoSize = true;
-            Seller_label.Font = new Font("Elephant", 10.8749981F);
+            Seller_label.Font = new Font("Century Gothic", 12F, FontStyle.Bold);
             Seller_label.ForeColor = Color.White;
             Seller_label.Location = new Point(12, 67);
             Seller_label.Name = "Seller_label";
-            Seller_label.Size = new Size(77, 29);
+            Seller_label.Size = new Size(73, 28);
             Seller_label.TabIndex = 4;
             Seller_label.Text = "usrlbl";
             // 
