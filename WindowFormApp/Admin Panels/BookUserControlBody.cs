@@ -174,7 +174,7 @@ namespace WinFormsApp1
                     else
                     {
 
-                    key = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["BId"].Value.ToString());
+                        key = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["BId"].Value.ToString());
                     }
                 }
 
@@ -217,15 +217,15 @@ namespace WinFormsApp1
             {
                 try
                 {
-                    using(SqlConnection conn = DbConnection.GetConnection())
+                    using (SqlConnection conn = DbConnection.GetConnection())
                     {
 
-                    string query = "delete from BookTbl where BId=" + key + ";";
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Book Deleted Succesfully");
-                    LoadBookData();
-                    reset();
+                        string query = "delete from BookTbl where BId=" + key + ";";
+                        SqlCommand cmd = new SqlCommand(query, conn);
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Book Deleted Succesfully");
+                        LoadBookData();
+                        reset();
                     }
                 }
                 catch (Exception ex)
@@ -235,5 +235,62 @@ namespace WinFormsApp1
 
             }
         }
+
+        private void Add_btn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(titleTB.Text) ||
+                string.IsNullOrWhiteSpace(AuthorTB.Text) ||
+                string.IsNullOrWhiteSpace(QuanTB.Text) ||
+                string.IsNullOrWhiteSpace(PriceTB.Text) ||
+                comboBox1.SelectedIndex == -1)
+            {
+                MessageBox.Show("Missing Information!");
+                return;
+            }
+
+            try
+            {
+                using (SqlConnection conn = DbConnection.GetConnection())
+                {
+
+                    // Check if the book with the same title, category, and author already exists
+                    string checkQuery = "SELECT COUNT(*) FROM BookTbl WHERE BTitle = @Title AND BAuthor = @Author AND BCat = @Category";
+                    SqlCommand checkCmd = new SqlCommand(checkQuery, conn);
+                    checkCmd.Parameters.AddWithValue("@Title", titleTB.Text.Trim());
+                    checkCmd.Parameters.AddWithValue("@Author", AuthorTB.Text.Trim()); // Fixed typo here
+                    checkCmd.Parameters.AddWithValue("@Category", comboBox1.SelectedItem.ToString());
+
+                    int count = (int)checkCmd.ExecuteScalar(); // Get the count of matching records
+
+                    if (count > 0)
+                    {
+                        MessageBox.Show("This book already exists in the selected category and author!");
+                        reset();  // Reset the fields if book exists
+                        return;
+                    }
+
+                    // Insert the new book
+                    string insertQuery = "INSERT INTO BookTbl (BTitle, BAuthor, BCat, BQty, BPrice) VALUES (@Title, @Author, @Category, @Quantity, @Price)";
+                    SqlCommand insertCmd = new SqlCommand(insertQuery, conn);
+                    insertCmd.Parameters.AddWithValue("@Title", titleTB.Text.Trim());
+                    insertCmd.Parameters.AddWithValue("@Author", AuthorTB.Text.Trim());
+                    insertCmd.Parameters.AddWithValue("@Category", comboBox1.SelectedItem.ToString());
+                    insertCmd.Parameters.AddWithValue("@Quantity", int.Parse(QuanTB.Text.Trim()));
+                    insertCmd.Parameters.AddWithValue("@Price", decimal.Parse(PriceTB.Text.Trim()));
+
+                    insertCmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Book Saved Successfully!");
+                    LoadBookData(); // Refresh the book data grid or list
+                    reset();        // Reset the input fields
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
     }
 }

@@ -41,7 +41,7 @@
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
-            button1 = new Button();
+            Add_btn = new Button();
             label7 = new Label();
             AddCat_tb = new TextBox();
             CreateBtn = new Button();
@@ -184,19 +184,20 @@
             label6.TabIndex = 12;
             label6.Text = "Price";
             // 
-            // button1
+            // Add_btn
             // 
-            button1.BackColor = Color.BlueViolet;
-            button1.Cursor = Cursors.Hand;
-            button1.Font = new Font("Cooper Black", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.ForeColor = SystemColors.Control;
-            button1.Location = new Point(278, 277);
-            button1.Margin = new Padding(4, 5, 4, 5);
-            button1.Name = "button1";
-            button1.Size = new Size(131, 53);
-            button1.TabIndex = 13;
-            button1.Text = "Add";
-            button1.UseVisualStyleBackColor = false;
+            Add_btn.BackColor = Color.BlueViolet;
+            Add_btn.Cursor = Cursors.Hand;
+            Add_btn.Font = new Font("Cooper Black", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Add_btn.ForeColor = SystemColors.Control;
+            Add_btn.Location = new Point(278, 277);
+            Add_btn.Margin = new Padding(4, 5, 4, 5);
+            Add_btn.Name = "Add_btn";
+            Add_btn.Size = new Size(131, 53);
+            Add_btn.TabIndex = 13;
+            Add_btn.Text = "Add";
+            Add_btn.UseVisualStyleBackColor = false;
+            Add_btn.Click += Add_btn_Click;
             // 
             // label7
             // 
@@ -344,7 +345,7 @@
             Controls.Add(CreateBtn);
             Controls.Add(AddCat_tb);
             Controls.Add(label7);
-            Controls.Add(button1);
+            Controls.Add(Add_btn);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -380,7 +381,7 @@
         private Label label4;
         private Label label5;
         private Label label6;
-        private Button button1;
+        private Button Add_btn;
         private Label label7;
         private TextBox AddCat_tb;
         private Button CreateBtn;
