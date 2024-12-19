@@ -60,6 +60,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4, 5, 4, 5);
             Name = "SellerForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "SellerForm";
             ResumeLayout(false);
         }

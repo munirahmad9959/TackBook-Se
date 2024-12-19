@@ -32,18 +32,18 @@
             label1 = new Label();
             pictureBox1 = new PictureBox();
             label2 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            name_TB = new TextBox();
+            phone_TB = new TextBox();
             label3 = new Label();
-            textBox3 = new TextBox();
+            Adress_TB = new TextBox();
             label4 = new Label();
-            textBox4 = new TextBox();
+            password_TB = new TextBox();
             label5 = new Label();
             label6 = new Label();
             dataGridView1 = new DataGridView();
-            button4 = new Button();
-            button5 = new Button();
-            button6 = new Button();
+            del_sel_btn = new Button();
+            edit_sel_btn = new Button();
+            Add_Sel_btn = new Button();
             label9 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -83,23 +83,23 @@
             label2.TabIndex = 2;
             label2.Text = "User Name";
             // 
-            // textBox1
+            // name_TB
             // 
-            textBox1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(9, 195);
-            textBox1.Margin = new Padding(4, 5, 4, 5);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(198, 33);
-            textBox1.TabIndex = 6;
+            name_TB.Font = new Font("Century Gothic", 11F);
+            name_TB.Location = new Point(9, 195);
+            name_TB.Margin = new Padding(4, 5, 4, 5);
+            name_TB.Name = "name_TB";
+            name_TB.Size = new Size(198, 34);
+            name_TB.TabIndex = 6;
             // 
-            // textBox2
+            // phone_TB
             // 
-            textBox2.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(286, 195);
-            textBox2.Margin = new Padding(4, 5, 4, 5);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(198, 33);
-            textBox2.TabIndex = 8;
+            phone_TB.Font = new Font("Century Gothic", 11F);
+            phone_TB.Location = new Point(286, 195);
+            phone_TB.Margin = new Padding(4, 5, 4, 5);
+            phone_TB.Name = "phone_TB";
+            phone_TB.Size = new Size(198, 34);
+            phone_TB.TabIndex = 8;
             // 
             // label3
             // 
@@ -112,14 +112,14 @@
             label3.TabIndex = 7;
             label3.Text = "Phone";
             // 
-            // textBox3
+            // Adress_TB
             // 
-            textBox3.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox3.Location = new Point(573, 198);
-            textBox3.Margin = new Padding(4, 5, 4, 5);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(198, 33);
-            textBox3.TabIndex = 10;
+            Adress_TB.Font = new Font("Century Gothic", 11F);
+            Adress_TB.Location = new Point(573, 198);
+            Adress_TB.Margin = new Padding(4, 5, 4, 5);
+            Adress_TB.Name = "Adress_TB";
+            Adress_TB.Size = new Size(198, 34);
+            Adress_TB.TabIndex = 10;
             // 
             // label4
             // 
@@ -128,18 +128,18 @@
             label4.Location = new Point(573, 165);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(72, 23);
+            label4.Size = new Size(88, 23);
             label4.TabIndex = 9;
-            label4.Text = "Phone";
+            label4.Text = "Address";
             // 
-            // textBox4
+            // password_TB
             // 
-            textBox4.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox4.Location = new Point(867, 198);
-            textBox4.Margin = new Padding(4, 5, 4, 5);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(198, 33);
-            textBox4.TabIndex = 12;
+            password_TB.Font = new Font("Century Gothic", 11F);
+            password_TB.Location = new Point(867, 198);
+            password_TB.Margin = new Padding(4, 5, 4, 5);
+            password_TB.Name = "password_TB";
+            password_TB.Size = new Size(198, 34);
+            password_TB.TabIndex = 12;
             // 
             // label5
             // 
@@ -166,6 +166,7 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = Color.White;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(9, 478);
@@ -174,49 +175,55 @@
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.Size = new Size(1060, 315);
             dataGridView1.TabIndex = 20;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
-            // button4
+            // del_sel_btn
             // 
-            button4.BackColor = Color.BlueViolet;
-            button4.Font = new Font("Cooper Black", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button4.ForeColor = SystemColors.Control;
-            button4.Location = new Point(683, 275);
-            button4.Margin = new Padding(4, 5, 4, 5);
-            button4.Name = "button4";
-            button4.Size = new Size(131, 53);
-            button4.TabIndex = 27;
-            button4.Text = "Delete";
-            button4.UseVisualStyleBackColor = false;
+            del_sel_btn.BackColor = Color.BlueViolet;
+            del_sel_btn.Cursor = Cursors.Hand;
+            del_sel_btn.Font = new Font("Cooper Black", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            del_sel_btn.ForeColor = SystemColors.Control;
+            del_sel_btn.Location = new Point(683, 275);
+            del_sel_btn.Margin = new Padding(4, 5, 4, 5);
+            del_sel_btn.Name = "del_sel_btn";
+            del_sel_btn.Size = new Size(131, 53);
+            del_sel_btn.TabIndex = 27;
+            del_sel_btn.Text = "Delete";
+            del_sel_btn.UseVisualStyleBackColor = false;
             // 
-            // button5
+            // edit_sel_btn
             // 
-            button5.BackColor = Color.BlueViolet;
-            button5.Font = new Font("Cooper Black", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button5.ForeColor = SystemColors.Control;
-            button5.Location = new Point(479, 275);
-            button5.Margin = new Padding(4, 5, 4, 5);
-            button5.Name = "button5";
-            button5.Size = new Size(131, 53);
-            button5.TabIndex = 26;
-            button5.Text = "Edit";
-            button5.UseVisualStyleBackColor = false;
+            edit_sel_btn.BackColor = Color.BlueViolet;
+            edit_sel_btn.Cursor = Cursors.Hand;
+            edit_sel_btn.Font = new Font("Cooper Black", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            edit_sel_btn.ForeColor = SystemColors.Control;
+            edit_sel_btn.Location = new Point(479, 275);
+            edit_sel_btn.Margin = new Padding(4, 5, 4, 5);
+            edit_sel_btn.Name = "edit_sel_btn";
+            edit_sel_btn.Size = new Size(131, 53);
+            edit_sel_btn.TabIndex = 26;
+            edit_sel_btn.Text = "Edit";
+            edit_sel_btn.UseVisualStyleBackColor = false;
             // 
-            // button6
+            // Add_Sel_btn
             // 
-            button6.BackColor = Color.BlueViolet;
-            button6.Font = new Font("Cooper Black", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button6.ForeColor = SystemColors.Control;
-            button6.Location = new Point(269, 275);
-            button6.Margin = new Padding(4, 5, 4, 5);
-            button6.Name = "button6";
-            button6.Size = new Size(131, 53);
-            button6.TabIndex = 25;
-            button6.Text = "Add";
-            button6.UseVisualStyleBackColor = false;
+            Add_Sel_btn.BackColor = Color.BlueViolet;
+            Add_Sel_btn.Cursor = Cursors.Hand;
+            Add_Sel_btn.Font = new Font("Cooper Black", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Add_Sel_btn.ForeColor = SystemColors.Control;
+            Add_Sel_btn.Location = new Point(269, 275);
+            Add_Sel_btn.Margin = new Padding(4, 5, 4, 5);
+            Add_Sel_btn.Name = "Add_Sel_btn";
+            Add_Sel_btn.Size = new Size(131, 53);
+            Add_Sel_btn.TabIndex = 25;
+            Add_Sel_btn.Text = "Add";
+            Add_Sel_btn.UseVisualStyleBackColor = false;
+            Add_Sel_btn.Click += Add_Sel_btn_Click;
             // 
             // label9
             // 
             label9.AutoSize = true;
+            label9.Cursor = Cursors.Hand;
             label9.Font = new Font("Century Gothic", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label9.ForeColor = Color.Navy;
             label9.Location = new Point(1050, 0);
@@ -232,18 +239,18 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Azure;
             Controls.Add(label9);
-            Controls.Add(button4);
-            Controls.Add(button5);
-            Controls.Add(button6);
+            Controls.Add(del_sel_btn);
+            Controls.Add(edit_sel_btn);
+            Controls.Add(Add_Sel_btn);
             Controls.Add(dataGridView1);
             Controls.Add(label6);
-            Controls.Add(textBox4);
+            Controls.Add(password_TB);
             Controls.Add(label5);
-            Controls.Add(textBox3);
+            Controls.Add(Adress_TB);
             Controls.Add(label4);
-            Controls.Add(textBox2);
+            Controls.Add(phone_TB);
             Controls.Add(label3);
-            Controls.Add(textBox1);
+            Controls.Add(name_TB);
             Controls.Add(label2);
             Controls.Add(pictureBox1);
             Controls.Add(label1);
@@ -261,18 +268,18 @@
         private Label label1;
         private PictureBox pictureBox1;
         private Label label2;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox name_TB;
+        private TextBox phone_TB;
         private Label label3;
-        private TextBox textBox3;
+        private TextBox Adress_TB;
         private Label label4;
-        private TextBox textBox4;
+        private TextBox password_TB;
         private Label label5;
         private Label label6;
         private DataGridView dataGridView1;
-        private Button button4;
-        private Button button5;
-        private Button button6;
+        private Button del_sel_btn;
+        private Button edit_sel_btn;
+        private Button Add_Sel_btn;
         private Label label9;
     }
 }
