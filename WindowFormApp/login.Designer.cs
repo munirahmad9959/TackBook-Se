@@ -219,6 +219,7 @@
             // label10
             // 
             label10.AutoSize = true;
+            label10.Cursor = Cursors.Hand;
             label10.Font = new Font("Century Gothic", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label10.ForeColor = Color.Navy;
             label10.Location = new Point(593, 1);

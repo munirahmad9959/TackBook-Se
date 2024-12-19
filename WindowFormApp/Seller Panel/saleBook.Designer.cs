@@ -95,6 +95,7 @@
             panel4.BackColor = Color.DarkOrchid;
             panel4.Controls.Add(label7);
             panel4.Controls.Add(pictureBox5);
+            panel4.Cursor = Cursors.Hand;
             panel4.Location = new Point(53, 710);
             panel4.Margin = new Padding(4, 5, 4, 5);
             panel4.Name = "panel4";
@@ -236,6 +237,7 @@
             // label18
             // 
             label18.AutoSize = true;
+            label18.Cursor = Cursors.Hand;
             label18.Font = new Font("Century Gothic", 14F, FontStyle.Bold);
             label18.ForeColor = Color.Navy;
             label18.Location = new Point(1007, 3);
@@ -284,6 +286,7 @@
             // button1
             // 
             button1.BackColor = Color.BlueViolet;
+            button1.Cursor = Cursors.Hand;
             button1.Font = new Font("Cooper Black", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button1.ForeColor = SystemColors.Control;
             button1.Location = new Point(810, 615);
@@ -321,6 +324,7 @@
             // button5
             // 
             button5.BackColor = Color.BlueViolet;
+            button5.Cursor = Cursors.Hand;
             button5.Font = new Font("Cooper Black", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button5.ForeColor = SystemColors.Control;
             button5.Location = new Point(229, 318);
@@ -335,6 +339,7 @@
             // button6
             // 
             button6.BackColor = Color.BlueViolet;
+            button6.Cursor = Cursors.Hand;
             button6.Font = new Font("Cooper Black", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button6.ForeColor = SystemColors.Control;
             button6.Location = new Point(56, 318);
