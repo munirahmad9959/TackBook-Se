@@ -17,6 +17,7 @@ namespace WinFormsApp1
         {
             InitializeComponent();
             LoadBookData();
+            sellerName.Text = login.UserName;
         }
 
         private void LoadBookData()

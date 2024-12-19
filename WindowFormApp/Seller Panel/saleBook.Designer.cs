@@ -61,7 +61,7 @@
             label10 = new Label();
             pictureBox3 = new PictureBox();
             label9 = new Label();
-            label8 = new Label();
+            sellerName = new Label();
             pictureBox2 = new PictureBox();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
@@ -227,7 +227,7 @@
             panel2.Controls.Add(label10);
             panel2.Controls.Add(pictureBox3);
             panel2.Controls.Add(label9);
-            panel2.Controls.Add(label8);
+            panel2.Controls.Add(sellerName);
             panel2.Controls.Add(pictureBox2);
             panel2.Location = new Point(340, 0);
             panel2.Name = "panel2";
@@ -466,16 +466,16 @@
             label9.TabIndex = 4;
             label9.Text = "TACBOOK";
             // 
-            // label8
+            // sellerName
             // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Tahoma", 12F, FontStyle.Bold);
-            label8.ForeColor = Color.Navy;
-            label8.Location = new Point(73, 20);
-            label8.Name = "label8";
-            label8.Size = new Size(80, 29);
-            label8.TabIndex = 3;
-            label8.Text = "Seller";
+            sellerName.AutoSize = true;
+            sellerName.Font = new Font("Tahoma", 12F, FontStyle.Bold);
+            sellerName.ForeColor = Color.Navy;
+            sellerName.Location = new Point(73, 20);
+            sellerName.Name = "sellerName";
+            sellerName.Size = new Size(80, 29);
+            sellerName.TabIndex = 3;
+            sellerName.Text = "Seller";
             // 
             // pictureBox2
             // 
@@ -527,7 +527,7 @@
         private Label label7;
         private PictureBox pictureBox5;
         private Panel panel2;
-        private Label label8;
+        private Label sellerName;
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
         private Label label9;

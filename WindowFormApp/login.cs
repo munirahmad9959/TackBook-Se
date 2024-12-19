@@ -18,7 +18,7 @@ namespace WinFormsApp1
             // Exit the application
             Application.Exit();
         }
-
+        public static string? UserName = "";
         private void loginFormBtnLogin_Click(object sender, EventArgs e)
         {
             string username = loginformusernametxtbox.Text.Trim(); // Get username
@@ -48,6 +48,7 @@ namespace WinFormsApp1
                         {
                             // Login successful
                             MessageBox.Show("Login Successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            UserName = username;
                             saleBook newform = new saleBook();
                             this.Hide();
                             newform.Show();
