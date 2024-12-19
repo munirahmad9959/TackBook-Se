@@ -185,12 +185,38 @@ namespace WinFormsApp1
 
             }
         }
+        private bool ValidateBookInput(out string errorMessage)
+        {
+            errorMessage = string.Empty;
+
+            // Check if the quantity is a positive integer
+            if (!int.TryParse(QuanTB.Text, out int quantity) || quantity <= 0)
+            {
+                errorMessage = "Invalid Quantity";
+                return false;
+            }
+
+            // Check if the price is a decimal between 0 and 9
+            if(!int.TryParse(PriceTB.Text, out int price) || price <= 0) {
+          
+                errorMessage = "Invalid Price!";
+                return false;
+            }
+
+            return true;
+        }
+
 
         private void Edit_btn_Click(object sender, EventArgs e)
         {
             if (titleTB.Text == " " || AuthorTB.Text == " " || QuanTB.Text == " " || PriceTB.Text == " " || comboBox1.SelectedIndex == -1)
             {
                 MessageBox.Show("Missing Information!");
+            }
+            if (!ValidateBookInput(out string validationError))
+            {
+                MessageBox.Show(validationError);
+                return;
             }
             else
             {
@@ -245,6 +271,11 @@ namespace WinFormsApp1
                 comboBox1.SelectedIndex == -1)
             {
                 MessageBox.Show("Missing Information!");
+                return;
+            }
+            if (!ValidateBookInput(out string validationError))
+            {
+                MessageBox.Show(validationError);
                 return;
             }
 
