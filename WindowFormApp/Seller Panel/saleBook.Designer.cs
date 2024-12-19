@@ -229,9 +229,9 @@
             panel2.Controls.Add(label9);
             panel2.Controls.Add(label8);
             panel2.Controls.Add(pictureBox2);
-            panel2.Location = new Point(340, 2);
+            panel2.Location = new Point(340, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1104, 840);
+            panel2.Size = new Size(1050, 842);
             panel2.TabIndex = 1;
             // 
             // label18
@@ -496,6 +496,7 @@
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "saleBook";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "saleBook";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

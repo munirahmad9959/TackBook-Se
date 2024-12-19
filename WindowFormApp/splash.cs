@@ -21,5 +21,26 @@ namespace WinFormsApp1
         {
             Application.Exit();
         }
+
+        private void splash_Load(object sender, EventArgs e)
+        {
+            timer1.Start();
+
+        }
+        int startpos = 0;
+        private void timer1_Tick_1(object sender, EventArgs e)
+        {
+            startpos += 1;
+            ProgressBar.Value = startpos;
+            percent_lbl.Text = startpos + "%";
+            if (ProgressBar.Value == 100)
+            {
+                ProgressBar.Value = 0;
+                timer1.Stop();
+                login log = new login();
+                log.Show();
+                this.Hide();
+            }
+        }
     }
 }
