@@ -190,6 +190,7 @@
             del_sel_btn.TabIndex = 27;
             del_sel_btn.Text = "Delete";
             del_sel_btn.UseVisualStyleBackColor = false;
+            del_sel_btn.Click += del_sel_btn_Click;
             // 
             // edit_sel_btn
             // 
@@ -204,6 +205,7 @@
             edit_sel_btn.TabIndex = 26;
             edit_sel_btn.Text = "Edit";
             edit_sel_btn.UseVisualStyleBackColor = false;
+            edit_sel_btn.Click += edit_sel_btn_Click;
             // 
             // Add_Sel_btn
             // 

@@ -91,14 +91,46 @@ namespace WinFormsApp1
             }
         }
 
+        private bool ValidateInput(out string errorMessage)
+        {
+            errorMessage = string.Empty;
+
+            // Validate name (non-empty, alphanumeric, and length <= 50)
+            if (string.IsNullOrWhiteSpace(name_TB.Text) || name_TB.Text.Length > 50)
+            {
+                errorMessage = "Name must be non-empty and not exceed 50 characters.";
+                return false;
+            }
+
+            // Validate phone (numeric and length == 11)
+            if (!long.TryParse(phone_TB.Text, out long phone) || phone_TB.Text.Length != 11 || phone < 0)
+            {
+                errorMessage = "Phone must be a 11-digit positive number.";
+                return false;
+            }
+
+            // Validate address (non-empty and length <= 100)
+            if (string.IsNullOrWhiteSpace(Adress_TB.Text) || Adress_TB.Text.Length > 100)
+            {
+                errorMessage = "Address must be non-empty and not exceed 100 characters.";
+                return false;
+            }
+
+            // Validate password (non-empty and length >= 3)
+            if (string.IsNullOrWhiteSpace(password_TB.Text) || password_TB.Text.Length < 3)
+            {
+                errorMessage = "Password must be at least 3 characters long.";
+                return false;
+            }
+
+            return true;
+        }
+
         private void Add_Sel_btn_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(name_TB.Text) ||
-               string.IsNullOrWhiteSpace(Adress_TB.Text) ||
-               string.IsNullOrWhiteSpace(password_TB.Text) ||
-               string.IsNullOrWhiteSpace(phone_TB.Text))
+            if (!ValidateInput(out string errorMessage))
             {
-                MessageBox.Show("Missing Information!");
+                MessageBox.Show(errorMessage, "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -106,40 +138,126 @@ namespace WinFormsApp1
             {
                 using (SqlConnection conn = DbConnection.GetConnection())
                 {
-
-                    // Check if the seller with the same phone already exists
                     string checkQuery = "SELECT COUNT(*) FROM SellerTbl WHERE UPhone = @Phone";
                     SqlCommand checkCmd = new SqlCommand(checkQuery, conn);
                     checkCmd.Parameters.AddWithValue("@Phone", phone_TB.Text.Trim());
 
-
-                    int count = (int)checkCmd.ExecuteScalar(); // Get the count of matching records
-
+                    int count = (int)checkCmd.ExecuteScalar();
                     if (count > 0)
                     {
                         MessageBox.Show("This Seller already exists!");
-                        reset();  // Reset the fields if Seller exists
+                        reset();
                         return;
                     }
 
-                    // Insert the new Seller
                     string insertQuery = "INSERT INTO SellerTbl (UName, UPhone, UAdd, UPass) VALUES (@Name, @Phone, @Address, @Password)";
                     SqlCommand insertCmd = new SqlCommand(insertQuery, conn);
                     insertCmd.Parameters.AddWithValue("@Name", name_TB.Text.Trim());
                     insertCmd.Parameters.AddWithValue("@Phone", phone_TB.Text.Trim());
-                    insertCmd.Parameters.AddWithValue("@Address",Adress_TB.Text.Trim());
+                    insertCmd.Parameters.AddWithValue("@Address", Adress_TB.Text.Trim());
                     insertCmd.Parameters.AddWithValue("@Password", password_TB.Text.Trim());
 
                     insertCmd.ExecuteNonQuery();
 
                     MessageBox.Show("Seller Saved Successfully!");
-                    LoadSellerData(); // Refresh the Seller data grid or list
-                    reset();        // Reset the input fields
+                    LoadSellerData();
+                    reset();
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void edit_sel_btn_Click(object sender, EventArgs e)
+        {
+            if (key == 0)
+            {
+                MessageBox.Show("Select a record to update!");
+                return;
+            }
+
+            if (!ValidateInput(out string errorMessage))
+            {
+                MessageBox.Show(errorMessage, "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                using (SqlConnection conn = DbConnection.GetConnection())
+                {
+                    string fetchQuery = "SELECT UName, UPhone, UAdd, UPass FROM SellerTbl WHERE UId=@UId";
+                    SqlCommand fetchCmd = new SqlCommand(fetchQuery, conn);
+                    fetchCmd.Parameters.AddWithValue("@UId", key);
+
+                    SqlDataReader reader = fetchCmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        string existingName = reader["UName"].ToString();
+                        string existingPhone = reader["UPhone"].ToString();
+                        string existingAddress = reader["UAdd"].ToString();
+                        string existingPassword = reader["UPass"].ToString();
+                        reader.Close();
+
+                        if (name_TB.Text == existingName &&
+                            phone_TB.Text == existingPhone &&
+                            Adress_TB.Text == existingAddress &&
+                            password_TB.Text == existingPassword)
+                        {
+                            MessageBox.Show("Add new data to update. The provided data matches the existing data.");
+                            return;
+                        }
+                    }
+
+                    string updateQuery = "UPDATE SellerTbl SET UName=@UName, UPhone=@UPhone, UAdd=@UAdd, UPass=@UPass WHERE UId=@UId";
+                    SqlCommand updateCmd = new SqlCommand(updateQuery, conn);
+
+                    updateCmd.Parameters.AddWithValue("@UName", name_TB.Text);
+                    updateCmd.Parameters.AddWithValue("@UPhone", phone_TB.Text);
+                    updateCmd.Parameters.AddWithValue("@UAdd", Adress_TB.Text);
+                    updateCmd.Parameters.AddWithValue("@UPass", password_TB.Text);
+                    updateCmd.Parameters.AddWithValue("@UId", key);
+
+                    updateCmd.ExecuteNonQuery();
+                    MessageBox.Show("Seller Updated Successfully");
+                    LoadSellerData();
+                    reset();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
+            }
+        }
+
+        private void del_sel_btn_Click(object sender, EventArgs e)
+        {
+            if (key == 0)
+            {
+                MessageBox.Show("Missing Information!");
+            }
+            else
+            {
+                try
+                {
+                    using (SqlConnection conn = DbConnection.GetConnection())
+                    {
+
+                        string query = "delete from SellerTbl where UId=" + key + ";";
+                        SqlCommand cmd = new SqlCommand(query, conn);
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Seller Deleted Succesfully");
+                        LoadSellerData();
+                        reset();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
             }
         }
     }
