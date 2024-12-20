@@ -1,13 +1,11 @@
 ﻿using Microsoft.Data.SqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using PdfSharp.Pdf;
+using PdfSharp.Drawing;
+using System.IO;
 
 namespace WinFormsApp1
 {
@@ -24,28 +22,21 @@ namespace WinFormsApp1
         {
             try
             {
-                // Establish the database connection
                 using (SqlConnection conn = DbConnection.GetConnection())
                 {
-                    // Define the SQL query to retrieve all records from BookTbl
                     string query = "SELECT BId, BTitle, BAuthor, BCat, BQty, BPrice FROM BookTbl";
 
-                    // Create a SqlDataAdapter to execute the query and fetch data
                     SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
 
-                    // Use a DataTable to store the fetched data
                     DataTable dataTable = new DataTable();
 
-                    // Fill the DataTable with data from the database
                     adapter.Fill(dataTable);
 
-                    // Bind the DataTable to the DataGridView
                     dataGridView1.DataSource = dataTable;
                 }
             }
             catch (Exception ex)
             {
-                // Display any errors that occur
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -66,7 +57,7 @@ namespace WinFormsApp1
                 {
                     MessageBox.Show("Please fill in all the fields: Book Name, Quantity, Client Name, and Price.",
                                     "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return; // Exit the method if validation fails
+                    return;
                 }
 
                 ServiceReference1.Service1Client myserver = new ServiceReference1.Service1Client();
@@ -78,6 +69,13 @@ namespace WinFormsApp1
                 myOrder.Price = Convert.ToInt32(textBox4.Text);
                 await myserver.addOrderAsync(myOrder);
                 datashow();
+
+                UpdateTotalPrice();
+
+                textBox1.Text = "";
+                textBox2.Text = "";
+                textBox3.Text = "";
+                textBox4.Text = "";
             }
             catch (Exception ex)
             {
@@ -91,21 +89,32 @@ namespace WinFormsApp1
             BindingSource abc = new BindingSource();
             abc.DataSource = await myclient.getOrderListAsync();
             dataGridView2.DataSource = abc;
+
+            foreach (DataGridViewRow row in dataGridView2.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                if (decimal.TryParse(row.Cells["Quantity"].Value?.ToString(), out decimal quantity) &&
+                    decimal.TryParse(row.Cells["Price"].Value?.ToString(), out decimal unitPrice))
+                {
+                    row.Cells["Price"].Value = (quantity * unitPrice).ToString();
+                }
+            }
+
+            UpdateTotalPrice();
         }
 
-        private int key = 0; // Declare the key variable at the class level (outside of the event handler)
-        private int stock = 0; // Declare the stock variable at the class level (outside of the event handler)
+        private int key = 0;
+        private int stock = 0;
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
-                // Ensure the click is on a valid row (not header row)
                 if (e.RowIndex >= 0)
                 {
                     textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells["BTitle"].Value.ToString();
                     textBox4.Text = dataGridView1.Rows[e.RowIndex].Cells["BPrice"].Value.ToString();
-                    //MessageBox.Show("Clicked");
                     textBox1.Enabled = false;
                     textBox4.Enabled = false;
 
@@ -129,6 +138,8 @@ namespace WinFormsApp1
             ServiceReference1.Service1Client myserver = new ServiceReference1.Service1Client();
             await myserver.resetOrdersAsync();
             datashow();
+
+            label16.Text = "TOTAL";
         }
 
         private void label7_Click(object sender, EventArgs e)
@@ -141,6 +152,141 @@ namespace WinFormsApp1
         private void label18_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            ServiceReference1.Service1Client myserver = new ServiceReference1.Service1Client();
+            GenerateReceipt();
+            await myserver.resetOrdersAsync();
+            datashow();
+
+            label16.Text = "TOTAL";
+        }
+
+        private void GenerateReceipt()
+        {
+            try
+            {
+                SaveFileDialog saveFileDialog = new SaveFileDialog
+                {
+                    Filter = "PDF Files (.pdf)|.pdf",
+                    DefaultExt = "pdf",
+                    AddExtension = true
+                };
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string pdfPath = saveFileDialog.FileName;
+
+                    PdfDocument pdf = new PdfDocument();
+                    PdfPage page = pdf.AddPage();
+                    XGraphics gfx = XGraphics.FromPdfPage(page);
+
+                    page.Width = 470;
+                    page.Height = 296;
+
+                    XFont titleFont = new XFont("Arial", 14, XFontStyleEx.Bold);
+                    XFont headerFont = new XFont("Arial", 12, XFontStyleEx.Bold);
+                    XFont regularFont = new XFont("Arial", 10);
+
+                    gfx.DrawString("Departmental Store Receipt", titleFont, XBrushes.Black, new XPoint(126, 20), XStringFormats.Center);
+
+                    gfx.DrawString($"Date: {DateTime.Now}", regularFont, XBrushes.Black, new XPoint(200, 40));
+
+                    string clientName = "";
+                    foreach (DataGridViewRow row in dataGridView2.Rows)
+                    {
+                        if (row.IsNewRow) continue;
+                        clientName = row.Cells["ClientName"].Value?.ToString() ?? "";
+                        if (!string.IsNullOrWhiteSpace(clientName))
+                        {
+                            break;
+                        }
+                    }
+
+                    decimal totalPrice = 0;
+                    foreach (DataGridViewRow row in dataGridView2.Rows)
+                    {
+                        if (row.IsNewRow) continue;
+
+                        if (decimal.TryParse(row.Cells["Price"].Value?.ToString(), out decimal price))
+                        {
+                            totalPrice += price;
+                        }
+                    }
+
+                    gfx.DrawString("Seller Details:", headerFont, XBrushes.Black, new XPoint(20, 60));
+                    gfx.DrawString($"Seller Name: {sellerName.Text}", regularFont, XBrushes.Black, new XPoint(20, 80));
+                    gfx.DrawString($"Client Name: {clientName}", regularFont, XBrushes.Black, new XPoint(20, 100));
+
+                    gfx.DrawString("Invoice Details:", headerFont, XBrushes.Black, new XPoint(20, 120));
+
+                    int rowHeight = 20;
+                    int yPos = 140;
+
+                    gfx.DrawString("Book Name", headerFont, XBrushes.Black, new XPoint(20, yPos));
+                    gfx.DrawString("Quantity", headerFont, XBrushes.Black, new XPoint(120, yPos));
+                    gfx.DrawString("Price", headerFont, XBrushes.Black, new XPoint(180, yPos));
+
+                    yPos += rowHeight;
+
+                    foreach (DataGridViewRow row in dataGridView2.Rows)
+                    {
+                        if (row.IsNewRow) continue;
+
+                        string bookName = row.Cells["BookName"].Value?.ToString() ?? "";
+                        string quantity = row.Cells["Quantity"].Value?.ToString() ?? "";
+                        string price = row.Cells["Price"].Value?.ToString() ?? "";
+
+                        gfx.DrawString(bookName, regularFont, XBrushes.Black, new XPoint(20, yPos));
+                        gfx.DrawString(quantity, regularFont, XBrushes.Black, new XPoint(120, yPos));
+                        gfx.DrawString(price, regularFont, XBrushes.Black, new XPoint(180, yPos));
+
+                        yPos += rowHeight;
+                    }
+
+                    gfx.DrawString("Total Amount:", headerFont, XBrushes.Black, new XPoint(20, yPos));
+                    gfx.DrawString($"${totalPrice}", regularFont, XBrushes.Black, new XPoint(120, yPos));
+
+                    yPos += 40;
+                    gfx.DrawString("Thank you for shopping with us!", regularFont, XBrushes.Black, new XPoint(126, yPos), XStringFormats.Center);
+
+                    pdf.Save(pdfPath);
+
+                    MessageBox.Show("Receipt generated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(pdfPath) { UseShellExecute = true });
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void UpdateTotalPrice()
+        {
+            try
+            {
+                decimal totalPrice = 0;
+
+                foreach (DataGridViewRow row in dataGridView2.Rows)
+                {
+                    if (row.IsNewRow) continue;
+
+                    if (decimal.TryParse(row.Cells["Price"].Value?.ToString(), out decimal price))
+                    {
+                        totalPrice += price;
+                    }
+                }
+
+                label16.Text = $"Total: ${totalPrice}";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while calculating total price: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
