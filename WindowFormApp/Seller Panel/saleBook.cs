@@ -17,6 +17,10 @@ namespace WinFormsApp1
             LoadBookData();
             sellerName.Text = login.UserName;
         }
+        public static class Globals
+        {
+            public static string ClientName;
+        }
 
         private void LoadBookData()
         {
@@ -65,6 +69,8 @@ namespace WinFormsApp1
                 myOrder.BookId = key;
                 myOrder.BookName = textBox1.Text;
                 myOrder.ClientName = textBox3.Text;
+                Globals.ClientName = myOrder.ClientName;
+               
                 myOrder.Quantity = Convert.ToInt32(textBox2.Text);
                 myOrder.Price = Convert.ToInt32(textBox4.Text);
                 await myserver.addOrderAsync(myOrder);
@@ -156,6 +162,12 @@ namespace WinFormsApp1
 
         private async void button1_Click(object sender, EventArgs e)
         {
+            using (SqlConnection connection = DbConnection.GetConnection())
+            {
+                string query = $"INSERT INTO BillTbl (UName, ClientName, Amount) VALUES ('{sellerName.Text}', '{Globals.ClientName}', {label16.Text})";
+                SqlCommand cmd = new SqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+            }
             ServiceReference1.Service1Client myserver = new ServiceReference1.Service1Client();
             GenerateReceipt();
             await myserver.resetOrdersAsync();
@@ -190,7 +202,7 @@ namespace WinFormsApp1
                     XFont headerFont = new XFont("Arial", 12, XFontStyleEx.Bold);
                     XFont regularFont = new XFont("Arial", 10);
 
-                    gfx.DrawString("Departmental Store Receipt", titleFont, XBrushes.Black, new XPoint(126, 20), XStringFormats.Center);
+                    gfx.DrawString("TacBook Receipt", titleFont, XBrushes.Black, new XPoint(126, 20), XStringFormats.Center);
 
                     gfx.DrawString($"Date: {DateTime.Now}", regularFont, XBrushes.Black, new XPoint(200, 40));
 
@@ -281,7 +293,7 @@ namespace WinFormsApp1
                     }
                 }
 
-                label16.Text = $"Total: ${totalPrice}";
+                label16.Text = totalPrice.ToString();
             }
             catch (Exception ex)
             {
