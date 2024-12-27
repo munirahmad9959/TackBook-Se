@@ -260,5 +260,10 @@ namespace WinFormsApp1
 
             }
         }
+
+        private void SellerControl_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -259,6 +259,7 @@
             Margin = new Padding(4, 5, 4, 5);
             Name = "SellerControl";
             Size = new Size(1087, 842);
+            Load += SellerControl_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
